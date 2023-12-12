@@ -1,23 +1,65 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" >
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage - Visualizza Prodotti</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
   
 </head>
-<body>
+<body class="bg-black">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-</nav>
-
-<div class="container mt-4">
-    <h2>Prodotti Disponibili</h2>
-    <div id="productsContainer" class="row">
+<div class="container-fluid mt-4 text-center bg-black" >
+    <a  href="./backoffice.html"><button class="rounded bg-black text-bg-light mb-5"><p class="text-light">➕ Back Office ➕</p></button></a>
+    <h2 class="text-bg-warning text-light fs-1">💰Prodotti Disponibili💰</h2>
+    <div id="productsContainer" class="row d-flex justify-content-center">
 
     </div>
+    <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProductModalLabel">Modifica Prodotto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <!-- I campi del form qui -->
+                        <input type="hidden" id="editProductId">
+                        <div class="form-group">
+                            <label for="productName">Nome</label>
+                            <input type="text" class="form-control" id="productName">
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Descrizione</label>
+                            <input type="text" class="form-control" id="productDescription">
+                        </div>
+                        <div class="form-group">
+                            <label for="productBrand">Marca</label>
+                            <input type="text" class="form-control" id="productBrand">
+                        </div>
+                        <div class="form-group">
+                            <label for="productImageUrl">URL Immagine</label>
+                            <input type="text" class="form-control" id="productImageUrl">
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Prezzo</label>
+                            <input type="number" class="form-control" id="productPrice">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Chiudi</button>
+                    <button type="button" class="btn btn-primary" id="saveButton">Salva Modifiche</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer><p class="text-warning fs-2">&copy;Damiano Dell'Amore 2023</p></footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
