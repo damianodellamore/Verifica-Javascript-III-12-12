@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento Prodotto - Back Office</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Back Office</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+     
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Inserimento Prodotto</h2>
+    <form id="productForm">
+        <div class="mb-3">
+            <label for="productName" class="form-label">Nome Prodotto</label>
+            <input type="text" class="form-control" id="productName" required>
+        </div>
+        <div class="mb-3">
+            <label for="productDescription" class="form-label">Descrizione Prodotto</label>
+            <textarea class="form-control" id="productDescription" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="imgUrl" class="form-label">Inserisci l'url dell'immagine</label>
+            <textarea class="form-control" id="imgUrl" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="brand" class="form-label">Inserisci il nome del Brand</label>
+            <textarea class="form-control" id="brand" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Inserisci il prezzo</label>
+            <textarea class="form-control" id="price" required></textarea>
+        </div>
+        
+        <button id="submitBtn" type="submit" class="btn btn-primary">Crea Prodotto</button>
+        <button type="reset" class="btn btn-secondary">Cancella</button>
+    </form>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">&copy;Damiano Dell'Amore 2023</span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="backoffice.js"></script>
+</body>
+</html>
