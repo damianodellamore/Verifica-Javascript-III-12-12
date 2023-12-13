@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio Prodotto</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        .product-detail-container {
+            margin-top: 50px;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container product-detail-container">
+    <div class="row">
+        <div class="col-md-6">
+            <img id="immagineProdotto" src="URL_IMMAGINE_PRODOTTO" alt="Nome Prodotto" class="product-image img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2 id="nomeProdotto">Nome Prodotto</h2>
+            <p id="marcaProdotto" class="text-muted">Marca: Marca Prodotto</p>
+            <p id="descrizioneProdotto">Descrizione del prodotto...</p>
+            <h3 id="prezzoProdotto" class="fw-bold">€ Prezzo Prodotto</h3>
+            <a href="index.html"> Torna alla Home</a>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="dettaglio.js"></script>
+</body>
+</html>

@@ -134,12 +134,12 @@ document
           cardBody.innerHTML = `
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-text">${product.description}</p>
-                <a href="#" class="btn btn-primary">€${product.price}</a>
+                <a href="#" class="btn btn-info">€${product.price}</a>
             `;
 
          
           const editButton = document.createElement("button");
-          editButton.className = "btn btn-info";
+          editButton.className = "btn btn-warning my-3";
           editButton.textContent = "Edit";
           editButton.dataset.productId = product._id;
           editButton.addEventListener("click", function (event) {
@@ -156,12 +156,44 @@ document
             event.preventDefault();
             deleteProduct(this.dataset.productId, card);
           });
-
+          const detailButton = document.createElement("button");
+          detailButton.className = "btn btn-primary";
+          detailButton.textContent = "Detail";
+          detailButton.dataset.productId = product._id; 
+         
+          detailButton.addEventListener("click", function () {
+            const productId = this.dataset.productId;
+            window.location.href = `dettaglio.html?productId=${productId}`;
+        });
+        
+      
+     
+          cardBody.appendChild(detailButton);
+      
           cardBody.appendChild(editButton);
           cardBody.appendChild(deleteButton);
           card.appendChild(cardImage);
           card.appendChild(cardBody);
           productsContainer.appendChild(card);
+          const modifyButton = document.createElement("button");
+    modifyButton.className = "btn btn-secondary";
+    const modifyIcon = document.createElement("i");
+    modifyIcon.className = "fa fa-pencil-alt"; 
+    modifyButton.appendChild(modifyIcon);
+
+    modifyButton.addEventListener("click", function () {
+       
+        editButton.style.display = editButton.style.display === "none" ? "block" : "none";
+        deleteButton.style.display = deleteButton.style.display === "none" ? "block" : "none";
+    });
+
+  
+    editButton.style.display = "none";
+    deleteButton.style.display = "none";
+
+    cardBody.appendChild(modifyButton);
+    cardBody.appendChild(editButton);
+    cardBody.appendChild(deleteButton);
         });
         document.getElementById('saveButton').addEventListener('click', function() {
             const productId = document.getElementById("editProductId").value;
@@ -253,7 +285,7 @@ function editProduct(productId) {
   .then((updatedProduct) => {
     console.log("Product updated:", updatedProduct);
     updateProductCard(updatedProduct); 
-    closeModal();// Aggiorna il DOM
+    closeModal();
 
   })
   .catch((error) => console.log("Error:", error));
@@ -275,3 +307,39 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateProductCard(){
     window.location.reload()
 }
+
+
+
+function showProductDetails(productId) {
+  const apiUrl = `https://striveschool-api.herokuapp.com/api/product/${productId}`;
+  fetch(apiUrl, {
+      method: "GET",
+      headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4NDVhNGMwNTgzNTAwMTg1MjMxYTUiLCJpYXQiOjE3MDIzODA5NjQsImV4cCI6MTcwMzU5MDU2NH0.1iRcdNMPqzGWnncht5h1RPNZbCcaNcaEBhlIRfvPa1E"
+
+      }
+  })
+  .then(response => response.json())
+  .then(productData => {
+      displayProductDetailPage(productData);
+  })
+  .catch(error => console.error("Errore:", error));
+}
+
+function displayProductDetailPage(productData) {
+
+  document.getElementById('nomeProdotto').innerText = productData.name;
+  document.getElementById('immagineProdotto').src = productData.imageUrl;
+  document.getElementById('descrizioneProdotto').innerText = productData.description;
+  document.getElementById('marcaProdotto').innerText = productData.brand;
+  document.getElementById('prezzoProdotto').innerText = `€${productData.price}`;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('productId');
+
+    if(productId) {
+        showProductDetails(productId);
+    }
+});

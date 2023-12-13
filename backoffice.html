@@ -30,7 +30,7 @@
 
 <div class="container mt-4">
     <h2>Inserimento Prodotto</h2>
-    <form id="productForm">
+    <form id="productForm" class="needs-validation" novalidate onsubmit="return validateForm()">
         <div class="mb-3">
             <label for="productName" class="form-label">Nome Prodotto</label>
             <input type="text" class="form-control" id="productName" required>
@@ -53,7 +53,9 @@
         </div>
         
         <button id="submitBtn" type="submit" class="btn btn-primary">Crea Prodotto</button>
+  
         <button type="reset" class="btn btn-secondary">Cancella</button>
+
     </form>
 </div>
 

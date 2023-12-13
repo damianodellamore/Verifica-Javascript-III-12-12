@@ -29,3 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Errore:', error));
     });
 });
+
+function validateForm() {
+    const form = document.getElementById('productForm');
+    if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return false;
+    }
+  
+    return true;
+}
+document.getElementById('productForm').addEventListener('reset', function () {
+    this.classList.remove('was-validated');
+});
