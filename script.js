@@ -158,7 +158,7 @@ document
           });
           const detailButton = document.createElement("button");
           detailButton.className = "btn btn-primary";
-          detailButton.textContent = "Detail";
+          detailButton.innerHTML = '<i class="fas fa-info-circle"></i>';
           detailButton.dataset.productId = product._id; 
          
           detailButton.addEventListener("click", function () {

@@ -26,8 +26,17 @@
         gap: 10px;
       }
 
-
+      #container{
+        background-image: url(sf2.png);
+        height:100vh;
+        background-attachment:fixed;
+        background-repeat: repeat-x;
+      }
+      .card{
+        box-shadow: 4px 4px 4px black
+      }
       .btn {
+        box-shadow: 4px 4px 4px black;
         transition: background-color 0.3s ease;
       }
 
@@ -36,14 +45,30 @@
       }
     </style>
   </head>
-  <body class="bg-black">
-    <div class="container-fluid mt-4 text-center bg-black">
-      <a href="./backoffice.html"
-        ><button class="rounded bg-black text-bg-light mb-5">
-          <p class="text-light">➕ Back Office ➕</p>
-        </button></a
-      >
-      <h2 class="text-bg-warning text-light fs-1">💰Prodotti Disponibili💰</h2>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Crudazon</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="./backoffice.html">Backoffice</a>
+                  </li>
+               
+              </ul>
+          </div>
+      </div>
+  </nav>
+    <div id="container"class="container-fluid mt-4 text-center bg-white">
+    
+      
+      <h2 class="text-bg-warning  fs-1">💰Prodotti Disponibili💰</h2>
       <div
         id="productsContainer"
         class="row d-flex justify-content-center"
@@ -122,11 +147,11 @@
         </div>
       </div>
 
-      <footer>
-        <p class="text-warning fs-2">&copy;Damiano Dell'Amore 2023</p>
-      </footer>
+   
     </div>
-
+    <footer>
+      <p class="text-warning text-center fs-2">&copy;Damiano Dell'Amore 2023</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
